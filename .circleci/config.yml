@@ -35,6 +35,8 @@ jobs:
                         - node_modules
                 
                 # Test the source code
+                - run: ng test
+
                 - run:
                     name: Testing
                     command: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
