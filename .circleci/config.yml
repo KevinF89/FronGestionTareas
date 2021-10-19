@@ -35,7 +35,7 @@ jobs:
                         - node_modules
                 
                 # Test the source code
-                - run: ng test
+                - run: npm start
 
                 - run:
                     name: Testing
