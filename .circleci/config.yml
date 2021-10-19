@@ -13,7 +13,7 @@ jobs:
                 - checkout
                 
                 - run: npm install
-                - run: -g @angular/cli@latest
+                - run: npm install -g @angular/cli
                 # Log the current branch
                 - run:
                     name: Show current branch
