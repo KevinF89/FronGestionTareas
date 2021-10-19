@@ -12,6 +12,7 @@ jobs:
                 
                 - checkout
                 
+                - run: sudo chown -R $USER /usr/local/lib/node_modules
                 - run: npm install
                 - run: npm install -g @angular/cli@8.0.6
                 # Log the current branch
