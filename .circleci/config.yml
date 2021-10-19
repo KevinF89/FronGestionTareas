@@ -12,7 +12,7 @@ jobs:
                 
                 - checkout
                 
-                - run: sudo npm install -g @angular/cli@8.0.6
+                - run: sudo npm install -g @angular/cli@7.3.9 > /dev/null
                 - run: npm install
                 
                 # Log the current branch
