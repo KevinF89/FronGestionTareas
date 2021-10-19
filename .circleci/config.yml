@@ -12,6 +12,7 @@ jobs:
                 
                 - checkout
                 
+                - run: ng analytics off
                 - run: sudo npm install -g @angular/cli@8.0.6
                 - run: npm install
                 
