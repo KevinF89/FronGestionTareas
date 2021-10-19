@@ -1,0 +1,83 @@
+
+
+
+      
+    
+    
+      
+        
+          <h1>Administración Tareas</h1>
+          <br />
+         
+           
+         
+                <form [formGroup]="formCreate" class="form-control-static" (ngSubmit)="CrearTarea(formupdate)" >
+    
+                   
+    
+                    <div class="row" >
+                        
+                        <div class="col-md-6">
+                            <div class="form-group">
+                            <label [for]="txtNombres" >Nombre</label>
+                            <input formControlName ="txtNombres" class="form-control" [(ngModel)]="TareaEditar.Nombre" >
+                        </div>
+                        </div>
+                
+                    
+                        <div class="col-md-6">
+                            <div class="form-group">
+                             
+                                    <label [for]="txtEstado" >Estado</label>
+                                    <input formControlName ="txtEstado" class="form-control" [(ngModel)]="TareaEditar.Estado"  >
+                               
+                                </div>
+                        </div>
+                    </div>
+                    <div class="row" >
+                        <div class="col-md-6">
+                            <div class="form-group">
+                            <label [for]="dtfecha" >Fecha Proyectada</label>
+                            <input formControlName ="dtfecha" class="form-control"  type="date" [(ngModel)]="TareaEditar.FechaProyectada">
+                        </div>
+                        </div>
+                
+                    
+                        <div class="col-md-6">
+                            <div class="form-group">
+                             
+                                <label [for]="ddlEmpelado"  >Selecciona un empleado:</label>
+                                <select id="ddlEmpelado"  formControlName="ddlTramite" placeholder="Selecciona" class="form-control" >
+                                    <option value="">Selecciona</option>
+                                    <option *ngFor="let a of ListEmpleados" [value]="a.IdEmpleado">{{a.Nombre}}</option>
+                                  </select>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="row" >
+                        <div class="col-md-6">
+                            <div class="form-group">
+                            <label [for]="txtDescripcion" >Descripcion</label>
+                            <input formControlName ="txtDescripcion"  class="form-control" type="text" [(ngModel)]="TareaEditar.Descripcion">
+                        </div>
+                        </div>
+                
+                    </div>
+                
+                       
+                    <div class="row" >
+                    
+                        <div class="col-md-6" >
+                            <div class="form-group">
+                                <label [for]="btnModificar" id="validar1" class="validacion" >{{validacion}}</label>
+                            <button  type="submit" #btnModificar class="btn btn-default"    >Actualizar</button>
+                        </div>
+                        </div>
+                
+                
+                </div>
+                </form>
+            
+          
+        
+    

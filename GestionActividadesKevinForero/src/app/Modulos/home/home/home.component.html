@@ -1,0 +1,196 @@
+
+
+
+      
+    
+    
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Nueva Actividad</button>
+
+      <!-- Modal -->
+      <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+      
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+			  <h1>Nueva Actividad</h1>
+			  </div>
+            <div class="modal-body">
+              <form [formGroup]="formCreate" class="form-control-static" (ngSubmit)="CrearTarea(formCreate)" >
+    
+                   
+    
+                <div class="row" >
+                    
+                    <div class="col-md-6">
+                        <div class="form-group">
+                        <label [for]="txtNombres" >Nombre</label>
+                        <input formControlName ="txtNombres" class="form-control"  >
+                    </div>
+                    </div>
+            
+                
+                    <div class="col-md-6">
+                        <div class="form-group">
+                         
+                                <label [for]="txtEstado" >Estado</label>
+                                <input formControlName ="txtEstado" class="form-control"   >
+                           
+                            </div>
+                    </div>
+                </div>
+                <div class="row" >
+                    <div class="col-md-6">
+                        <div class="form-group">
+                        <label [for]="dtfecha" >Fecha Proyectada</label>
+                        <input formControlName ="dtfecha" class="form-control"  type="date" >
+                    </div>
+                    </div>
+            
+                
+                    <div class="col-md-6">
+                        <div class="form-group">
+                         
+                            <label [for]="ddlEmpelado"  >Selecciona un empleado:</label>
+                            <select id="ddlEmpelado"  formControlName="ddlEmpelado" placeholder="Selecciona" class="form-control" >
+                                <option value="">Selecciona</option>
+                                <option *ngFor="let a of ListEmpleados" [value]="a.IdEmpleado">{{a.Nombre}}</option>
+                              </select>
+                            </div>
+                    </div>
+                </div>
+                <div class="row" >
+                    <div class="col-md-6">
+                        <div class="form-group">
+                        <label [for]="txtDescripcion" >Descripcion</label>
+                        <input formControlName ="txtDescripcion"  class="form-control" type="text" >
+                    </div>
+                    </div>
+            
+                </div>
+            
+                   
+                <div class="row" >
+                
+                    <div class="col-md-6" >
+                        <div class="form-group">
+                            <label [for]="btnModificar" id="validar1" class="validacion" >{{validacion}}</label>
+                        <button  type="submit" #btnModificar class="btn btn-default"    >Crear</button>
+                    </div>
+                    </div>
+            
+            
+            </div>
+            </form>
+            
+             
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+      
+        </div>
+      </div>
+        
+          <h1>Administración Actividades</h1>
+	
+          <br />
+          <div class="row">
+          <div class="col-md-12">
+            <table border="1" class="table table-striped" *ngIf="Tareas.length>0; else sinusuarios">
+              <tr>
+                <td>Id Tarea</td><td>Nombre</td><td>Estado</td><td>Fecha Creación</td><td>Fecha Estimada</td><td>Empleado</td><td>Borrar</td><td>Seleccionar</td>
+              </tr>
+              <tr *ngFor="let t of Tareas">
+                <td>{{t.IdActividad}}</td>
+                <td>{{t.Nombre}}</td>
+                <td>{{t.Estado}}</td>
+				<td>{{t.FechaCreacion}}</td>
+                <td>{{t.FechaProyectada}}</td>
+                <td>{{t.NombreEmpleado}}</td>
+                <td><button class="btn btn-danger" (click)="borrar(t)">Borrar</button></td>
+                <td><button  class="btn btn-success" (click)="seleccionar(t)">Seleccionar</button></td>        
+              </tr>
+            </table>
+        </div>
+    </div>
+           
+            <div *ngIf="TareaEditar">
+                <form [formGroup]="formupdate" class="form-control-static" (ngSubmit)="ActualizarUsuario(formupdate)" >
+    
+                   
+    
+                    <div class="row" >
+                        <div class="col-md-6">
+                            <div class="form-group">
+                             
+                                    <label [for]="txtid" >Id Tarea</label>
+                                    <input formControlName="txtid" class="form-control" type="text" minlength="4" maxlength="20" disabled [(ngModel)]="TareaEditar.IdActividad">
+                               
+                                </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                            <label [for]="txtNombres" >Nombre</label>
+                            <input formControlName ="txtNombres" class="form-control" [(ngModel)]="TareaEditar.Nombre" >
+                        </div>
+                        </div>
+                
+                    </div>
+                    <div class="row" >
+                        <div class="col-md-6">
+                            <div class="form-group">
+                             
+                                    <label [for]="txtEstado" >Estado</label>
+                                    <input formControlName ="txtEstado" class="form-control" [(ngModel)]="TareaEditar.Estado"  >
+                               
+                                </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                            <label [for]="dtfecha" >Fecha Proyectada</label>
+                            <input formControlName ="dtfecha" class="form-control"  type="date" [(ngModel)]="TareaEditar.FechaProyectada">
+                        </div>
+                        </div>
+                
+                    </div>
+                    <div class="row" >
+                        <div class="col-md-6">
+                            <div class="form-group">
+                             
+                                <label [for]="ddlEmpelado"  >Selecciona un empleado:</label>
+                                <select id="ddlEmpelado"  formControlName="ddlEmpelado" placeholder="Selecciona" class="form-control" >
+                                    <option value="">Selecciona</option>
+                                    <option *ngFor="let a of ListEmpleados" [value]="a.IdEmpleado">{{a.Nombre}}</option>
+                                  </select>
+                                </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                            <label [for]="txtDescripcion" >Descripcion</label>
+                            <input formControlName ="txtDescripcion"  class="form-control" type="text" [(ngModel)]="TareaEditar.Descripcion">
+                        </div>
+                        </div>
+                
+                    </div>
+                
+                       
+                    <div class="row" >
+                    
+                        <div class="col-md-6" >
+                            <div class="form-group">
+                                
+                            <button  type="submit" #btnModificar class="btn btn-default"    >Actualizar</button>
+                        </div>
+                        </div>
+                
+                
+                </div>
+                </form>
+            
+              
+            </div>
+        
+    

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ZKFGestionActividadesModelStoreContainer" CdmEntityContainer="ZKFGestionActividadesEntities">
+    <FunctionImportMapping FunctionImportName="SP_CrearTarea" FunctionName="ZKFGestionActividadesModel.Store.SP_CrearTarea" />
+    <FunctionImportMapping FunctionImportName="SP_EditarTarea" FunctionName="ZKFGestionActividadesModel.Store.SP_EditarTarea" />
+    <FunctionImportMapping FunctionImportName="SP_EliminarTarea" FunctionName="ZKFGestionActividadesModel.Store.SP_EliminarTarea" />
+    <FunctionImportMapping FunctionImportName="SP_ListaEmpleados" FunctionName="ZKFGestionActividadesModel.Store.SP_ListaEmpleados">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ZKFGestionActividadesModel.SP_ListaEmpleados_Result">
+          <ScalarProperty Name="IdEmpleado" ColumnName="IdEmpleado" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Documento" ColumnName="Documento" />
+          <ScalarProperty Name="Correo" ColumnName="Correo" />
+          <ScalarProperty Name="contacto" ColumnName="contacto" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_ConsultarTareas" FunctionName="ZKFGestionActividadesModel.Store.SP_ConsultarTareas">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ZKFGestionActividadesModel.SP_ConsultarTareas_Result">
+          <ScalarProperty Name="IdActividad" ColumnName="IdActividad" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="FechaProyectada" ColumnName="FechaProyectada" />
+          <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+          <ScalarProperty Name="FechaCierre" ColumnName="FechaCierre" />
+          <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+          <ScalarProperty Name="IdEmpleado" ColumnName="IdEmpleado" />
+          <ScalarProperty Name="NombreEmpleado" ColumnName="NombreEmpleado" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

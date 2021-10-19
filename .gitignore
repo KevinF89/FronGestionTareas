@@ -7,6 +7,11 @@
 *.obj
 *.elf
 
+# Node artifact files
+node_modules/
+dist/
+
+
 # Linker output
 *.ilk
 *.map
