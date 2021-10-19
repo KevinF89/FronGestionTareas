@@ -10,7 +10,7 @@
 # Node artifact files
 node_modules/
 dist/
-
+./node_modules/
 
 # Linker output
 *.ilk
