@@ -4,7 +4,7 @@ version: 2.1
 jobs:
         # The test job
         test:
-            working_directory: ~/GestionActividadesKevinForero
+            working_directory: ~/FronGestionTareas
             docker:
                 - image: circleci/node:10-browsers
             steps:
